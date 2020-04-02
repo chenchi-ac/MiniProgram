@@ -1,0 +1,163 @@
+<!-- navigator 不加属性不能跳转有tabbar页 数据传递-->
+<view>{{navigatorTitle}}</view>
+<navigator url="/pages/detail/detail?name=Tom&age=3">跳到详情页面</navigator>
+<!-- <navigator url="/pages/detail/detail" open-type="redirect">跳转页面，不能返回</navigator> -->
+<navigator url="/pages/category/category" open-type="switchTab">跳转到tabbar页面</navigator>
+<!-- <navigator url="/pages/detail/detail" open-type="reLaunch">关闭所有页面，跳转到某一页面</navigator> -->
+
+<!-- 通过代码跳转页面 -->
+<button bindtap="handleNavigator">跳到详情页</button>
+
+<!-- 分享 -->
+<button size="mini" open-type="share">点击分享</button>
+
+<!-- toast -->
+<button bindtap="handleShowToast">showToast</button>
+<button bindtap="handleShowModel">showModel</button>
+<button bindtap="handleShowLoading">showLading</button>
+<button bindtap="handleShowAction">showAction</button>
+
+
+<!-- 使用多插槽时需要在插槽组件内的js文件添加options:{ multipleSlots: true } -->
+
+<!-- 获取组件对象的方式，页面修改组件的数据/方法  Component构造器-->
+<my-sel id="my-sel"/>
+<button bindtap="handelAddCpn">修改组件数据</button>
+
+<!-- tar-control -->
+<tab-control titles="{{['流行', '新款', '精选']}}" bind:itemclick="handleTabClick"/>
+
+<!-- component -->
+<view>当前计数：{{counter1}}</view>
+<my-event bind:addCounters="addCounters"/>
+
+<my-cpn class="frist" title="cpn"/>
+<my-cpn title="propcpn"/>
+<my-cpn/>
+
+<!-- 事件参数的传递 -->
+<view class="containter">
+  <block wx:for="{{titles}}" wx:key="key" class="blockClass">
+    <view class="item"
+          bindtap="itemClick"
+          data-index="{{index}}"
+          data-item="{{item}}">{{item}}</view>
+  </block>
+</view>
+
+<!-- wxs -->
+<wxs src="../../wxs/info.wxs" module="info"/>
+
+<view>{{info.message}}</view>
+<view>{{info.add(info.num1, info.num2)}}</view>
+<view>{{info.priceFormat(price)}}</view>
+
+<!-- template -->
+<!-- <template name="game">
+  <block wx:for="{{2}}" wx:key="key">
+    <view>{{first + " and " + last}}</view>
+  </block>
+</template> -->
+<import src="/wxml/template.wxml"/>
+
+<template is="game" data="{{first: 'Tom', last: 'Jack'}}"></template>
+
+<!-- mustache -->
+<view>{{nowTime}}</view> 
+<view class="mustache {{isActive ? 'active' : ''}}">Tom and Jack</view>
+<button size="mini" bindtap="changeActive">按钮</button>
+
+<!-- weui -->
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                    <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+                    <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                        <icon type="clear" size="14"></icon>
+                    </view>
+                </view>
+                <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                    <icon class="weui-icon-search" type="search" size="14"></icon>
+                    <view class="weui-search-bar__text">搜索</view>
+                </label>
+            </view>
+            <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+        </view>
+    </view>
+</view>
+
+
+<!-- rpx -->
+<view class="boxrpx"></view>
+
+<!-- scroll-view -->
+<!-- 水平滚动 -->
+<scroll-view class="container1" scroll-x>
+  <view wx:for="{{10}}" class="item1" wx:key="key">{{item}}</view>
+</scroll-view>
+<!-- 垂直滚动 -->
+<scroll-view class="container2" scroll-y bindscroll="handleScroll">
+  <view wx:for="{{10}}" class="item2" wx:key="key">{{item}}</view>
+</scroll-view>
+
+<!-- input -->
+<input value="123"></input>
+<input placeholder="123"></input>
+<input bindfocus="inputFocus"></input>
+<input bindblur="inputBlur"></input>
+<input bindinput="inputInput"></input>
+<input password value="是否加密"></input>
+<input type="number" value="键盘类型"></input>
+<input confirm-typ="search"></input>
+
+<!--pages/home/home.wxml-->
+<text class="header">hello world</text>
+<button size="mini">按钮</button>
+<view>名字：{{name}}</view>
+<view wx:for="{{students}}" wx:key="key">{{item.name}}:{{item.age}}</view>
+
+<view>{{counter}}</view>
+<button size="mini" bindtap="addClick">+</button>
+<button size="mini" bindtap="subClick">-</button>
+
+<!-- 获取用户信息方式2 -->
+<button size="mini" open-type="getUserInfo" bindgetuserinfo="handGetUserInfo">获取用户信息
+</button>
+
+<!-- 展示用户信息3 -->
+<open-data type="userNickName"></open-data>
+<!-- <open-data type="userAvatarUrl" ></open-data> -->
+
+
+<!-- text组件 行内元素 类似于span-->
+<!-- selectable 长按能否选中 默认false-->
+<text selectable="{{true}}">Tom and Jack\n</text>
+<text selectable>Tom and Jack\n</text>
+
+<!-- space标签内空格大小 ensp中文空格的一半 emsp空格大小 nbsp根据字体设置大小 -->
+<text space="ensp">Tom and Jack\n</text>
+<text space="emsp">Tom and Jack\n</text>
+<text space="nbsp">Tom and Jack\n</text>
+
+<!-- decode是否解码 -->
+<text decode="{{true}}">Tom &gt; Jack\n</text>
+<text decode>Tom &gt; Jack\n</text>
+
+<!-- button -->
+<button loading size="mini">按钮</button>
+<!-- 点击时添加class -->
+<button hover-class="pressed" size="mini">按钮</button>
+
+<!-- view -->
+
+<view class="box2" hover-class="box3" hover-stay-time="200ms">
+  <view class="box" hover-class="box1" hover-stay-time="200ms" hover-stop-propagation="{{false}}">box
+  </view>
+</view>
+
+<!-- image --bindload监听图片加载完成 lazy-load懒加载 -->
+<image src="/assets/images/detail/collect.png" bindload="load" lazy-load show-menu-by-longpress>
+</image>

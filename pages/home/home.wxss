@@ -1,0 +1,76 @@
+/* pages/home/home.wxss */
+@import './style/weui-searchbar.wxss';
+/* @import './style/weui.wxss'; */
+
+.header {
+  color: green
+}
+.pressed {
+  color: white;
+  background-color: blue
+}
+.box {
+  width: 50px;
+  height: 50px;
+  background-color: green
+}
+.box1 {
+  font-size: 20px;
+  background-color: pink
+}
+.box2 {
+  width: 100px;
+  height: 100px;
+  background-color: orange
+}
+.box3 {
+  background-color: green
+}
+input {
+  border: 1px solid black;
+  border-radius: 5px
+}
+.container1 {
+  background-color: blue;
+  white-space: nowrap
+}
+.item1 {
+  display: inline-block;
+  margin: 10px;
+  width: 100px;
+  height: 100px;
+  background-color: green
+}
+.container2 {
+  margin-top: 10px;
+  height: 200px;
+  background-color: pink
+}
+.item2 {
+  margin: 10px;
+  width: 100px;
+  height: 100px;
+  background-color: blue
+}
+.boxrpx {
+  margin: 10rpx;
+  width: 200rpx;
+  height: 200rpx;
+  background-color: pink
+}
+.mustache {
+  font-size: 60rpx
+}
+.active {
+  color: pink
+}
+.containter {
+  display: flex
+}
+.item {
+  flex: 1;
+  text-align: center
+}
+.frist {
+  color: pink
+}

@@ -1,0 +1,9 @@
+<!--components/tar-control/tar-control.wxml-->
+<view class="tab-control">
+  <view wx:for="{{titles}}" wx:key="key" 
+        class='item {{currentIndex == index? "active" : ""}}'
+        bindtap="handelItemClick"
+        data-index="{{index}}">
+    <text>{{item}}</text>
+  </view>
+</view>

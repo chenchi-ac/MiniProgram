@@ -1,0 +1,5 @@
+<template name="game">
+  <block wx:for="{{2}}" wx:key="key">
+    <view>{{first + " and " + last}}</view>
+  </block>
+</template>

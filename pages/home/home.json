@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "my-cpn": "/components/my-cpn/my-cpn",
+    "my-event": "/components/my-event/my-event",
+    "tab-control": "/components/tab-control/tab-control",
+    "my-sel": "/components/my-sel/my-sel"
+  },
+  "enablePullDownRefresh": true
+}

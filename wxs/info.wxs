@@ -1,0 +1,22 @@
+// 只支持ES5
+var message = "Tom and Jack";
+var num1 = 1;
+var num2 = 2;
+function add(num1, num2) {
+  return num1 + num2
+};
+
+function priceFormat(price, number) {
+  var number = number || 2;
+  var f_price = parseFloat(price);
+  return f_price.toFixed(number)
+}
+
+// commonjs模块化导出
+module.exports = {
+  message: message,
+  num1: num1,
+  num2: num2,
+  add: add,
+  priceFormat: priceFormat
+}

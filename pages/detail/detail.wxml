@@ -1,0 +1,5 @@
+<!--pages/detail/detail.wxml-->
+<text>pages/detail/detail.wxml</text>
+<navigator open-type="navigateBack">返回</navigator>
+
+<button bindtap="handleNavigateBack">回到首页</button>
